@@ -1,9 +1,10 @@
-import { FunctionComponent, useEffect, useState } from 'react'
+import { Text } from '@chakra-ui/react'
+import { FunctionComponent } from 'react'
 
 const HomePage: FunctionComponent = () => {
     return (
         <div>
-            <h1>Home Page</h1>
+            <Text fontSize="5xl">Home Page</Text>
         </div>
     )
 }
