@@ -1,21 +1,22 @@
 import { FunctionComponent } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import {
-    default as CreateUser,
-    default as EditUser,
-    default as HomePage,
-    default as LoginPage,
-} from './pages/CreateUser/CreateUser'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+
+import CreateUser from './pages/Users/CreateUser/CreateUser'
+import HomePage from './pages/Home/HomePage'
+import EditUser from './pages/Users/EditUser/EditUser'
+import LoginPage from './pages/Login/LoginPage'
 
 const App: FunctionComponent = () => {
     return (
         <div>
-            <Switch>
-                <Route path="/" render={() => <HomePage />} exact />
-                <Route path="/EditUser" render={() => <EditUser />} exact />
-                <Route path="/CreateUser" render={() => <CreateUser />} exact />
-                <Route path="/LoginPage" render={() => <LoginPage />} exact />
-            </Switch>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/EditUser" element={<EditUser />} />
+                    <Route path="/CreateUser" element={<CreateUser />} />
+                    <Route path="/LoginPage" element={<LoginPage />} />
+                </Routes>
+            </BrowserRouter>
         </div>
     )
 }
