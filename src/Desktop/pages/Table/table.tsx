@@ -19,7 +19,7 @@ import {
     Line,
 } from 'reaviz'
 
-const HomePage: FunctionComponent = () => {
+const TablePage: FunctionComponent = () => {
     const singleDateData = [
         { key: new Date('7/11/2022'), data: 91 },
         { key: new Date('7/12/2022'), data: 91 },
@@ -30,7 +30,7 @@ const HomePage: FunctionComponent = () => {
 
     return (
         <div>
-            <Container maxW="container.sm">
+            <Container maxW="container.sm" className="app-margin-top">
                 <TableContainer>
                     <Table variant="simple" border="1px" borderColor="gray.200">
                         <Thead>
@@ -50,7 +50,7 @@ const HomePage: FunctionComponent = () => {
                     </Table>
                 </TableContainer>
 
-                <TableContainer>
+                <TableContainer className="app-margin-top">
                     <Table variant="simple" border="1px" borderColor="gray.200">
                         <Thead>
                             <Tr>
@@ -62,7 +62,31 @@ const HomePage: FunctionComponent = () => {
                         </Thead>
                         <Tbody>
                             <Tr>
+                                <Td>07/11/2022</Td>
+                                <Td>90</Td>
+                                <Td>1</Td>
+                                <Td>36</Td>
+                            </Tr>
+                            <Tr>
+                                <Td>07/12/2022</Td>
+                                <Td>90</Td>
+                                <Td>1</Td>
+                                <Td>36</Td>
+                            </Tr>
+                            <Tr>
+                                <Td>07/13/2022</Td>
+                                <Td>90</Td>
+                                <Td>1</Td>
+                                <Td>36</Td>
+                            </Tr>
+                            <Tr>
                                 <Td>07/14/2022</Td>
+                                <Td>90</Td>
+                                <Td>1</Td>
+                                <Td>36</Td>
+                            </Tr>
+                            <Tr>
+                                <Td>07/15/2022</Td>
                                 <Td>90</Td>
                                 <Td>1</Td>
                                 <Td>36</Td>
@@ -104,4 +128,4 @@ const HomePage: FunctionComponent = () => {
     )
 }
 
-export default HomePage
+export default TablePage

@@ -2,12 +2,13 @@ import { FunctionComponent } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Grid, GridItem } from '@chakra-ui/react'
 
-import HomePage from './pages/Home/HomePage'
+import TablePage from './pages/Table/table'
 import LoginPage from './pages/Login/LoginPage'
 import CreateUser from './pages/Users/CreateUser/CreateUser'
 import EditUser from './pages/Users/EditUser/EditUser'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
+import Graph from './pages/Graph/Graph'
 
 const App: FunctionComponent = () => {
     return (
@@ -31,7 +32,8 @@ const App: FunctionComponent = () => {
                     </GridItem>
                     <GridItem area={'content'}>
                         <Routes>
-                            <Route path="/" element={<HomePage />} />
+                            <Route path="/" element={<TablePage />} />
+                            <Route path="/Graph" element={<Graph />} />
                             <Route path="/EditUser" element={<EditUser />} />
                             <Route
                                 path="/CreateUser"

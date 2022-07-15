@@ -17,19 +17,8 @@ import './Header.css'
 
 const Header: FunctionComponent = () => {
     return (
-        <div className="navbar-bacground-color root">
-            <Flex className="header-margin-left header-margin-right">
-                <HStack className="app-margin-top app-margin-bottom">
-                    <Image
-                        boxSize="60px"
-                        objectFit="cover"
-                        src={`${window.location.origin}/favicon.ico`}
-                        alt="Weigth-Icon"
-                    />
-                    <Text color={'white'} fontSize={'3xl'}>
-                        Weight tracking
-                    </Text>
-                </HStack>
+        <div className="root">
+            <Flex className="header-margin-left header-margin-right app-margin-top">
                 <Spacer />
                 <HStack>
                     <Menu>
@@ -37,16 +26,18 @@ const Header: FunctionComponent = () => {
                             Acciones
                         </MenuButton>
                         <MenuList>
-                            <MenuItem icon={<FiUser />}>Ver perfil</MenuItem>
-                            <MenuItem icon={<FiLogOut />}>
+                            <MenuItem as="a" href="/EditUser" icon={<FiUser />}>
+                                Ver perfil
+                            </MenuItem>
+                            <MenuItem
+                                as="a"
+                                href="/LoginPage"
+                                icon={<FiLogOut />}
+                            >
                                 Cerrar sesión
                             </MenuItem>
                         </MenuList>
                     </Menu>
-                    <Avatar
-                        name="Dan Abrahmov"
-                        src="https://bit.ly/broken-link"
-                    />
                 </HStack>
             </Flex>
         </div>

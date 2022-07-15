@@ -1,16 +1,16 @@
 .wrapper .sidebar {
-    background: #597081;
+    background-color: #36494e;
     position: fixed;
+    top: 0;
     left: 0;
-    width: 225px;
+    width: 250px;
     height: 100%;
-    padding: 20px 0;
     transition: all 0.5s ease;
 }
 .wrapper .sidebar ul li a {
     display: block;
     padding: 13px 30px;
-    border-bottom: 1px solid #000000;
+    border-bottom: 2px solid #597081;
     color: rgb(241, 237, 237);
     font-size: 16px;
     position: relative;
@@ -24,9 +24,8 @@
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active {
     color: #0c7db1;
-
     background: white;
-    border-right: 2px solid rgb(5, 68, 104);
+    border-right: 2px solid #597081;
 }
 
 .wrapper .sidebar ul li a:hover .icon,
