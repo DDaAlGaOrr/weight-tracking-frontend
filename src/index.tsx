@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 
 import './index.css'
+import './App.css'
 
 const DesktopIndex = lazy(() => import('./Desktop/DesktopIndex'))
 
@@ -13,7 +14,6 @@ ReactDOM.render(
                 <DesktopIndex />
             </Suspense>
         </StrictMode>
-        ,
     </ChakraProvider>,
     document.getElementById('root'),
 )
