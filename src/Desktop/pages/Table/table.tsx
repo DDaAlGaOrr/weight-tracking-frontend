@@ -7,6 +7,7 @@ import {
     Th,
     Thead,
     Tr,
+    Button,
 } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
 import {
@@ -56,6 +57,9 @@ const TablePage: FunctionComponent = () => {
                 </TableContainer>
 
                 <TableContainer className="app-margin-top">
+                    <Button className="app-margin-bottom">
+                        Nuevo registro
+                    </Button>
                     <Table variant="simple" border="1px" borderColor="gray.200">
                         <Thead>
                             <Tr>
