@@ -10,16 +10,21 @@ import {
 } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
 import {
+    Area,
     AreaChart,
     AreaSeries,
-    Area,
-    Stripes,
     Gradient,
     GradientStop,
     Line,
+    Stripes,
 } from 'reaviz'
 
+import { GetdetailedTable } from '../../../API/Tables/detailedTable'
+import { GetGeneralTable } from '../../../API/Tables/GeneralTable'
+
 const TablePage: FunctionComponent = () => {
+    GetGeneralTable()
+    GetdetailedTable()
     const singleDateData = [
         { key: new Date('7/11/2022'), data: 91 },
         { key: new Date('7/12/2022'), data: 91 },
