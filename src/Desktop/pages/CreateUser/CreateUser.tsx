@@ -4,13 +4,12 @@ import { Button, Container, Input, FormControl, Center } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
-import { CreateNewUser } from '../../../API/createUser'
+import { CreateNewUser } from '../../../API/User'
 
 const CreateUser: FunctionComponent = () => {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = async (data: any) => {
-        console.log(data)
         CreateNewUser(data)
     }
 

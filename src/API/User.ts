@@ -1,6 +1,5 @@
 import axios from "axios"
-import { json } from "stream/consumers"
-import {User} from "./../types/User"
+import {User} from "../types/User"
 
 export const CreateNewUser = async(newUserData:User) => {
 	try {
@@ -8,7 +7,7 @@ export const CreateNewUser = async(newUserData:User) => {
 	  newUserDataCopy.age =  parseInt(newUserDataCopy.age) 
 	  newUserDataCopy.height = parseInt(newUserDataCopy.height) 
 	  newUserDataCopy.targetWeight = parseInt(newUserDataCopy.targetWeight)
-	  
+
 	  const result = await axios.post('http://localhost:3001/users',{
 		email:  newUserDataCopy.email,
         firstname:  newUserDataCopy.firstname,
