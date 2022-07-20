@@ -4,8 +4,7 @@ import { Grid, GridItem } from '@chakra-ui/react'
 
 import TablePage from './pages/Table/table'
 import LoginPage from './pages/Login/LoginPage'
-import CreateUser from './pages/Users/CreateUser/CreateUser'
-import EditUser from './pages/Users/EditUser/EditUser'
+import CreateUser from './pages/CreateUser/CreateUser'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Graph from './pages/Graph/Graph'
@@ -34,7 +33,10 @@ const App: FunctionComponent = () => {
                         <Routes>
                             <Route path="/" element={<TablePage />} />
                             <Route path="/Graph" element={<Graph />} />
-                            <Route path="/EditUser" element={<EditUser />} />
+                            <Route
+                                path="/CreateUser"
+                                element={<CreateUser />}
+                            />
                             <Route
                                 path="/CreateUser"
                                 element={<CreateUser />}
