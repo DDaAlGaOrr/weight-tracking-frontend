@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 import { AuthLogin } from '../../../API/Login'
+import { UserLogin } from '../../../types/User'
 import './LoginPage.css'
 
 const LoginPage: FunctionComponent = () => {

@@ -16,13 +16,6 @@ const CreateUser: FunctionComponent = () => {
     return (
         <div>
             <Container maxW="550px">
-                <Center>
-                    <img
-                        className="user-icon"
-                        alt="User Icon"
-                        src={`${window.location.origin}/UserIcon.png`}
-                    />
-                </Center>
                 <form
                     method="POST"
                     onSubmit={handleSubmit(onSubmit)}
