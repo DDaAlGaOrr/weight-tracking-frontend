@@ -1,5 +1,15 @@
 import {
+    Button,
     Container,
+    FormControl,
+    Input,
+    Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    ModalOverlay,
     Table,
     TableContainer,
     Tbody,
@@ -7,9 +17,8 @@ import {
     Th,
     Thead,
     Tr,
-    Button,
+    useDisclosure,
 } from '@chakra-ui/react'
-import { FunctionComponent } from 'react'
 import {
     Area,
     AreaChart,
@@ -19,13 +28,19 @@ import {
     Line,
     Stripes,
 } from 'reaviz'
+import { FunctionComponent, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { CreateNewweightData } from './../../../API/weightData'
 
-import { GetdetailedTable } from '../../../API/Tables/detailedTable'
-import { GetGeneralTable } from '../../../API/Tables/GeneralTable'
+import { DEFAULT_WEIGHT_DATA, WeightData } from './../../../types/WeightData'
 
 const TablePage: FunctionComponent = () => {
-    GetGeneralTable()
-    GetdetailedTable()
+    const { register, handleSubmit } = useForm()
+    const [isModalVisible, setIsModalVisible] = useState(false)
+    const { onOpen, onClose, isOpen } = useDisclosure()
+    const [weightData, setweightData] =
+        useState<WeightData>(DEFAULT_WEIGHT_DATA)
+
     const singleDateData = [
         { key: new Date('7/11/2022'), data: 91 },
         { key: new Date('7/12/2022'), data: 91 },
@@ -34,6 +49,21 @@ const TablePage: FunctionComponent = () => {
         { key: new Date('7/15/2022'), data: 86 },
     ]
 
+    const hideModal = () => {
+        setIsModalVisible(false)
+    }
+    const showModal = () => {
+        setIsModalVisible(true)
+    }
+    const handleResetDefault = () => {
+        setweightData(DEFAULT_WEIGHT_DATA)
+    }
+    const handleAddWeightData = () => {
+        console.log('hola')
+    }
+    const onSubmit = (data: any) => {
+        CreateNewweightData(data)
+    }
     return (
         <div>
             <Container maxW="container.sm" className="app-margin-top">
@@ -57,9 +87,47 @@ const TablePage: FunctionComponent = () => {
                 </TableContainer>
 
                 <TableContainer className="app-margin-top">
-                    <Button className="app-margin-bottom">
+                    <Button onClick={onOpen} className="app-margin-bottom">
                         Nuevo registro
                     </Button>
+                    <Modal isOpen={isOpen} onClose={onClose}>
+                        <ModalOverlay />
+                        <ModalContent>
+                            <ModalHeader>Create your account</ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody pb={6}>
+                                <form
+                                    method="POST"
+                                    onSubmit={handleSubmit(onSubmit)}
+                                    name="form"
+                                >
+                                    <FormControl>
+                                        <Input
+                                            isRequired
+                                            {...register('date')}
+                                            placeholder="date"
+                                            type={'date'}
+                                        />
+                                    </FormControl>
+                                    <FormControl mt={4}>
+                                        <Input
+                                            isRequired
+                                            {...register('weight')}
+                                            placeholder="Peso"
+                                        />
+                                    </FormControl>
+                                    <Button
+                                        type="submit"
+                                        colorScheme="blue"
+                                        mr={3}
+                                    >
+                                        Guardar
+                                    </Button>
+                                    <Button onClick={onClose}>Cancel</Button>
+                                </form>
+                            </ModalBody>
+                        </ModalContent>
+                    </Modal>
                     <Table variant="simple" border="1px" borderColor="gray.200">
                         <Thead>
                             <Tr>

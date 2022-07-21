@@ -9,7 +9,7 @@ import { CreateNewUser } from '../../../API/User'
 const CreateUser: FunctionComponent = () => {
     const { register, handleSubmit } = useForm()
 
-    const onSubmit = async (data: any) => {
+    const onSubmit = (data: any) => {
         CreateNewUser(data)
     }
 
