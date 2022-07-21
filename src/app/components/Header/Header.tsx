@@ -1,18 +1,16 @@
-import { FunctionComponent } from 'react'
 import {
-    Text,
-    Image,
-    Avatar,
+    Flex,
+    HStack,
+    IconButton,
     Menu,
     MenuButton,
-    MenuList,
     MenuItem,
-    Button,
-    HStack,
-    Flex,
+    MenuList,
     Spacer,
 } from '@chakra-ui/react'
-import { FiArrowDown, FiLogOut, FiUser } from 'react-icons/fi'
+import { FunctionComponent } from 'react'
+import { FiLogOut, FiSettings, FiUser } from 'react-icons/fi'
+
 import './Header.css'
 
 const Header: FunctionComponent = () => {
@@ -22,9 +20,11 @@ const Header: FunctionComponent = () => {
                 <Spacer />
                 <HStack>
                     <Menu>
-                        <MenuButton as={Button} rightIcon={<FiArrowDown />}>
-                            Acciones
-                        </MenuButton>
+                        <MenuButton
+                            as={IconButton}
+                            aria-label="Opciones"
+                            icon={<FiSettings />}
+                        />
                         <MenuList>
                             <MenuItem as="a" href="/EditUser" icon={<FiUser />}>
                                 Ver perfil

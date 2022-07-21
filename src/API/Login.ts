@@ -1,5 +1,6 @@
 import axios from "axios";
-import { UserLogin} from "../types/User";
+
+import { UserLogin } from "../types/User";
 
 export const AuthLogin = async(credentials:UserLogin) => {
 	const credentialCopy = {...credentials}

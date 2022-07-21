@@ -12,20 +12,20 @@ import {
 } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 
-import { CreateNewweightData } from '../../../../API/weightData'
+import { CreateNewweight } from '../../../../API/weight'
 
-interface NewWeightDataModalProps {
+interface NewWeightModalProps {
     onClose: () => void
     isOpen: boolean
 }
-const NewWeightDataModal: FunctionComponent<NewWeightDataModalProps> = ({
+const NewWeightModal: FunctionComponent<NewWeightModalProps> = ({
     onClose,
     isOpen,
 }) => {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = (data: any) => {
-        CreateNewweightData(data)
+        CreateNewweight(data)
     }
 
     return (
@@ -33,7 +33,7 @@ const NewWeightDataModal: FunctionComponent<NewWeightDataModalProps> = ({
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Create your account</ModalHeader>
+                    <ModalHeader>Nuevo Registro</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
                         <form onSubmit={handleSubmit(onSubmit)} name="form">
@@ -52,7 +52,12 @@ const NewWeightDataModal: FunctionComponent<NewWeightDataModalProps> = ({
                                     placeholder="Peso"
                                 />
                             </FormControl>
-                            <Button type="submit" colorScheme="blue" mr={3}>
+                            <Button
+                                type="submit"
+                                onClick={onClose}
+                                colorScheme="blue"
+                                mr={3}
+                            >
                                 Guardar
                             </Button>
                             <Button onClick={onClose}>Cancel</Button>
@@ -64,4 +69,4 @@ const NewWeightDataModal: FunctionComponent<NewWeightDataModalProps> = ({
     )
 }
 
-export default NewWeightDataModal
+export default NewWeightModal

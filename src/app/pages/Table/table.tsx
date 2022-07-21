@@ -10,14 +10,11 @@ import {
     Tr,
     useDisclosure,
 } from '@chakra-ui/react'
-import { FunctionComponent, useState } from 'react'
-
-import { DEFAULT_WEIGHT_DATA, WeightData } from '../../../types/WeightData'
-import NewWeightDataModal from './Modal/NewWeightDataModal'
+import { FunctionComponent } from 'react'
+import NewWeightModal from './Modal/NewWeightModal'
 
 const TablePage: FunctionComponent = () => {
     const { onOpen, onClose, isOpen } = useDisclosure()
-    useState<WeightData>(DEFAULT_WEIGHT_DATA)
 
     return (
         <div>
@@ -28,7 +25,7 @@ const TablePage: FunctionComponent = () => {
                             <Tr>
                                 <Th>Peso inicial</Th>
                                 <Th>Peso Actual</Th>
-                                <Th>Peso deseado final</Th>
+                                <Th>Peso ideal</Th>
                             </Tr>
                         </Thead>
                         <Tbody>
@@ -88,7 +85,7 @@ const TablePage: FunctionComponent = () => {
                         </Tbody>
                     </Table>
                 </TableContainer>
-                <NewWeightDataModal isOpen={isOpen} onClose={onClose} />
+                <NewWeightModal isOpen={isOpen} onClose={onClose} />
             </Container>
         </div>
     )

@@ -1,5 +1,6 @@
 import { HStack, Image, Text } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
+import { Link } from 'react-router-dom'
 
 import './Sidebar.css'
 
@@ -17,15 +18,15 @@ const Sidebar: FunctionComponent = () => {
                                 alt="Weigth-Icon"
                             />
                             <Text color={'white'} fontSize={'3xl'}>
-                                Weight tracking
+                                Health Tracking
                             </Text>
                         </HStack>
                         <ul>
                             <li>
-                                <a href="/">Tabla</a>
+                                <Link to="/">Tabla</Link>
                             </li>
                             <li>
-                                <a href="/Graph">Grafica</a>
+                                <Link to="/Graph">Grafica</Link>
                             </li>
                         </ul>
                     </div>

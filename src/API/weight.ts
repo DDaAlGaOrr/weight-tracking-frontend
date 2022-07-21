@@ -1,7 +1,9 @@
 import axios from "axios"
-import {WeightData} from './../types/WeightData'
 
-export const CreateNewweightData = async(newData:WeightData) => {
+import { Weight } from '../types/Weight'
+
+
+export const CreateNewweight = async(newData:Weight) => {
 	try {
 	console.log(newData)
 	const newDataCopy:any = {...newData}

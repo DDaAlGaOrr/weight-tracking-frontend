@@ -1,5 +1,6 @@
 import axios from "axios"
-import {User} from "../types/User"
+
+import { User } from "../types/User"
 
 export const CreateNewUser = async(newUserData:User) => {
 	try {

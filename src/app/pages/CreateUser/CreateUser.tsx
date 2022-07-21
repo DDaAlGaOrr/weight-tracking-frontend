@@ -1,8 +1,7 @@
-import { FunctionComponent, useState } from 'react'
-import { ArrowForwardIcon, SmallAddIcon } from '@chakra-ui/icons'
-import { Button, Container, Input, FormControl, Center } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Button, Container, FormControl, Input } from '@chakra-ui/react'
+import { FunctionComponent } from 'react'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 
 import { CreateNewUser } from '../../../API/User'
 

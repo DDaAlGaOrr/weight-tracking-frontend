@@ -1,5 +1,5 @@
+import { Container, Text } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
-import { Text, Container } from '@chakra-ui/react'
 
 const Graph: FunctionComponent = () => {
     return (

@@ -1,11 +1,10 @@
 import { ArrowForwardIcon, SmallAddIcon } from '@chakra-ui/icons'
-import { Button, Container, Input, FormControl, Center } from '@chakra-ui/react'
+import { Button, Center, Container, FormControl, Input } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
-import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 
 import { AuthLogin } from '../../../API/Login'
-import { UserLogin } from '../../../types/User'
 import './LoginPage.css'
 
 const LoginPage: FunctionComponent = () => {
