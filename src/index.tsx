@@ -5,7 +5,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import './index.css'
 import './App.css'
 
-const DesktopIndex = lazy(() => import('./Desktop/DesktopIndex'))
+const DesktopIndex = lazy(() => import('./app/DesktopIndex'))
 
 ReactDOM.render(
     <ChakraProvider>

@@ -30,9 +30,9 @@ import {
 } from 'reaviz'
 import { FunctionComponent, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { CreateNewweightData } from './../../../API/weightData'
+import { CreateNewweightData } from '../../../API/weightData'
 
-import { DEFAULT_WEIGHT_DATA, WeightData } from './../../../types/WeightData'
+import { DEFAULT_WEIGHT_DATA, WeightData } from '../../../types/WeightData'
 
 const TablePage: FunctionComponent = () => {
     const { register, handleSubmit } = useForm()
