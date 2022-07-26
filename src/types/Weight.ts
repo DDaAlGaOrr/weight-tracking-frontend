@@ -3,7 +3,7 @@ export interface Weight {
 	weight:number
 }
 
-export const DEFAULT_WEIGHT_DATA:Weight={
+export const DEFAULT_WEIGHT:Weight={
 	date: new Date(Date.now()),
 	weight:0
 }

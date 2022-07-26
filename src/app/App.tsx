@@ -10,6 +10,7 @@ import LoginPage from './pages/Login/LoginPage'
 import TablePage from './pages/Table/table'
 
 const App: FunctionComponent = () => {
+    console.log(sessionStorage.getItem('authUser'))
     return (
         <div>
             <Grid
@@ -31,13 +32,13 @@ const App: FunctionComponent = () => {
                     </GridItem>
                     <GridItem area={'content'}>
                         <Routes>
-                            <Route path="/" element={<TablePage />} />
+                            <Route path="/Table" element={<TablePage />} />
                             <Route path="/Graph" element={<Graph />} />
                             <Route
                                 path="/CreateUser"
                                 element={<CreateUser />}
                             />
-                            <Route path="/LoginPage" element={<LoginPage />} />
+                            <Route path="/" element={<LoginPage />} />
                         </Routes>
                     </GridItem>
                 </BrowserRouter>

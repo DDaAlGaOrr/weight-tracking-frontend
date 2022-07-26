@@ -1,17 +1,19 @@
-import { ArrowForwardIcon, SmallAddIcon } from '@chakra-ui/icons'
-import { Button, Center, Container, FormControl, Input } from '@chakra-ui/react'
+import { Button, Center, Container, Input, VStack } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { FiUserPlus, FiLogIn } from 'react-icons/fi'
 
-import { AuthLogin } from '../../../API/Login'
+import { AuthLogin } from '../../../API/User'
 import './LoginPage.css'
 
 const LoginPage: FunctionComponent = () => {
     const { register, handleSubmit } = useForm()
+    const navigate = useNavigate()
 
     const onSubmit = async (data: any) => {
         AuthLogin(data)
+        navigate('/')
     }
 
     return (
@@ -28,8 +30,9 @@ const LoginPage: FunctionComponent = () => {
                     method="POST"
                     onSubmit={handleSubmit(onSubmit)}
                     name="form"
+                    className="app-margin-top"
                 >
-                    <FormControl>
+                    <VStack spacing={'15px'} className="app-margin-bottom">
                         <Input
                             isRequired
                             {...register('email')}
@@ -40,23 +43,26 @@ const LoginPage: FunctionComponent = () => {
                             {...register('password')}
                             placeholder="Contraseña"
                         />
+                    </VStack>
+                    <Center>
                         <Link to="/CreateUser">
                             <Button
-                                rightIcon={<SmallAddIcon />}
+                                rightIcon={<FiUserPlus />}
                                 colorScheme={'blue'}
                                 type="submit"
+                                className="app-margin-right"
                             >
                                 Crear cuenta
                             </Button>
                         </Link>
                         <Button
-                            rightIcon={<ArrowForwardIcon />}
+                            rightIcon={<FiLogIn />}
                             colorScheme={'blue'}
                             type="submit"
                         >
                             Iniciar sesión
                         </Button>
-                    </FormControl>
+                    </Center>
                 </form>
             </Container>
         </div>

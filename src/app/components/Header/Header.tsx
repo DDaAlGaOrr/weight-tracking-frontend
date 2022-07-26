@@ -29,11 +29,7 @@ const Header: FunctionComponent = () => {
                             <MenuItem as="a" href="/EditUser" icon={<FiUser />}>
                                 Ver perfil
                             </MenuItem>
-                            <MenuItem
-                                as="a"
-                                href="/LoginPage"
-                                icon={<FiLogOut />}
-                            >
+                            <MenuItem as="a" href="/" icon={<FiLogOut />}>
                                 Cerrar sesión
                             </MenuItem>
                         </MenuList>

@@ -1,12 +1,24 @@
-import { Button, Container, FormControl, Input } from '@chakra-ui/react'
-import { FunctionComponent } from 'react'
+import {
+    Button,
+    Container,
+    FormControl,
+    Input,
+    VStack,
+    Center,
+    InputGroup,
+    InputRightElement,
+} from '@chakra-ui/react'
+import { FunctionComponent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import { FiArrowLeft, FiSave } from 'react-icons/fi'
 
 import { CreateNewUser } from '../../../API/User'
 
 const CreateUser: FunctionComponent = () => {
     const { register, handleSubmit } = useForm()
+    const [show, setShow] = useState(false)
+    const handleClick = () => setShow(!show)
 
     const onSubmit = (data: any) => {
         CreateNewUser(data)
@@ -20,53 +32,108 @@ const CreateUser: FunctionComponent = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     name="form"
                 >
-                    <FormControl>
-                        <Input
-                            isRequired
-                            {...register('email')}
-                            placeholder="Correo Electronico"
-                        />
-                        <Input
-                            isRequired
-                            {...register('firstname')}
-                            placeholder="Nombre(s)"
-                        />
-                        <Input
-                            isRequired
-                            {...register('lastname')}
-                            placeholder="Apellidos"
-                        />
-                        <Input
-                            isRequired
-                            {...register('password')}
-                            placeholder="Contraseña"
-                        />
-                        <Input
-                            isRequired
-                            {...register('age')}
-                            placeholder="Edad"
-                            type={'number'}
-                            inputMode="numeric"
-                        />
-                        <Input
-                            isRequired
-                            {...register('height')}
-                            placeholder="Altura(cms)"
-                            inputMode="numeric"
-                        />
-                        <Input
-                            isRequired
-                            {...register('targetWeight')}
-                            placeholder="Peso final deseado (KLS)"
-                            inputMode="numeric"
-                        />
-                        <Link to="/LoginPage">
-                            <Button colorScheme={'blue'}>regresar</Button>
+                    <VStack spacing={'15px'} className="app-margin-bottom">
+                        <FormControl>
+                            <Input
+                                isRequired
+                                {...register('email')}
+                                placeholder="Correo Electrónico"
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <Input
+                                isRequired
+                                {...register('firstname')}
+                                placeholder="Nombre(s)"
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <Input
+                                isRequired
+                                {...register('lastname')}
+                                placeholder="Apellidos"
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputGroup>
+                                <Input
+                                    isRequired
+                                    {...register('password')}
+                                    placeholder="Contraseña"
+                                    type={show ? 'text' : 'password'}
+                                />
+                                <InputRightElement width="4.5rem">
+                                    <Button
+                                        h="1.75rem"
+                                        size="sm"
+                                        onClick={handleClick}
+                                    >
+                                        {show ? 'Hide' : 'Show'}
+                                    </Button>
+                                </InputRightElement>
+                            </InputGroup>
+                        </FormControl>
+                        <FormControl>
+                            <Input
+                                isRequired
+                                placeholder="Repite tu contraseña"
+                                type={'password'}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <Input
+                                isRequired
+                                {...register('firstWeight')}
+                                placeholder="Tu peso actual(KG)"
+                                type={'number'}
+                                inputMode="numeric"
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <Input
+                                isRequired
+                                {...register('age')}
+                                placeholder="Edad"
+                                type={'number'}
+                                inputMode="numeric"
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <Input
+                                isRequired
+                                {...register('height')}
+                                placeholder="Altura(M)"
+                                inputMode="numeric"
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <Input
+                                isRequired
+                                {...register('targetWeight')}
+                                placeholder="Peso final deseado(KG)"
+                                inputMode="numeric"
+                                type={'number'}
+                            />
+                        </FormControl>
+                    </VStack>
+                    <Center>
+                        <Link to="/">
+                            <Button
+                                colorScheme={'blue'}
+                                className="app-margin-right"
+                                leftIcon={<FiArrowLeft />}
+                            >
+                                Regresar
+                            </Button>
                         </Link>
-                        <Button colorScheme={'blue'} type="submit">
+                        <Button
+                            colorScheme={'blue'}
+                            type="submit"
+                            rightIcon={<FiSave />}
+                        >
                             Crear
                         </Button>
-                    </FormControl>
+                    </Center>
                 </form>
             </Container>
         </div>

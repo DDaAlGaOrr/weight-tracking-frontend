@@ -23,10 +23,10 @@ const Sidebar: FunctionComponent = () => {
                         </HStack>
                         <ul>
                             <li>
-                                <Link to="/">Tabla</Link>
+                                <Link to="/Table">Tabla</Link>
                             </li>
                             <li>
-                                <Link to="/Graph">Grafica</Link>
+                                <Link to="/Graph">Gráfica</Link>
                             </li>
                         </ul>
                     </div>

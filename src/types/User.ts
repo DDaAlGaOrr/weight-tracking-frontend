@@ -3,6 +3,7 @@ export interface User {
     password: string
     firstname: string
     lastname: string
+    firstWeight:number
     age: number
     height: number
     targetWeigth: number
@@ -17,6 +18,7 @@ email:'',
 password:'',
 firstname:'',
 lastname:'',
+firstWeight:0,
 age:0,
 height:0,
 targetWeigth:0

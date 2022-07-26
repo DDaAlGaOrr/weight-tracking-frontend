@@ -25,7 +25,7 @@ const TablePage: FunctionComponent = () => {
                             <Tr>
                                 <Th>Peso inicial</Th>
                                 <Th>Peso Actual</Th>
-                                <Th>Peso ideal</Th>
+                                <Th>Peso meta</Th>
                             </Tr>
                         </Thead>
                         <Tbody>
