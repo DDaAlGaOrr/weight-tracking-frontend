@@ -10,7 +10,8 @@ export const CreateNewweight = async(newData:Weight) => {
 	console.log(newDataCopy)
 	const result = await axios.post('http://localhost:3001/weightTrackingData',{
 		date:newDataCopy.date,
-		weight: newDataCopy.weight
+		weight: newDataCopy.weight,
+		userId:newDataCopy.userId,
 	 })
 	console.log(result)
 	} catch (error) {

@@ -26,7 +26,7 @@ const NewWeightModal: FunctionComponent<NewWeightModalProps> = ({
     const today = new Date().toISOString().split('T')[0]
 
     const onSubmit = (data: any) => {
-        CreateNewweight(data)
+        CreateNewweight({ ...data, userId: sessionStorage.getItem('userId') })
     }
 
     return (

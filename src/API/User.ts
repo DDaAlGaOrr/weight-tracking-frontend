@@ -38,7 +38,10 @@ export const AuthLogin = async(credentials:UserLogin) => {
 			password:credentialCopy.password
 		})
 		const token = response.data.authResponse.token
-		token?sessionStorage.setItem('token',token):sessionStorage.setItem('token','')
+		const userId = response.data.authResponse.userId
+		token?(sessionStorage.setItem('token',token),
+		sessionStorage.setItem('userId',userId))
+		:sessionStorage.setItem('token','')
 		return token
 	}
 	catch(error){
