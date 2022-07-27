@@ -10,12 +10,15 @@ import {
 } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
 import { FiLogOut, FiSettings, FiUser } from 'react-icons/fi'
-
 import './Header.css'
 
 const Header: FunctionComponent = () => {
+    const handleLogOut = () => {
+        sessionStorage.clear()
+        window.location.href = '/'
+    }
     return (
-        <div className="root">
+        <div>
             <Flex className="header-margin-left header-margin-right app-margin-top">
                 <Spacer />
                 <HStack>
@@ -29,8 +32,11 @@ const Header: FunctionComponent = () => {
                             <MenuItem as="a" href="/EditUser" icon={<FiUser />}>
                                 Ver perfil
                             </MenuItem>
-                            <MenuItem as="a" href="/" icon={<FiLogOut />}>
-                                Cerrar sesión
+                            <MenuItem
+                                onClick={handleLogOut}
+                                icon={<FiLogOut />}
+                            >
+                                Cerrar sessión
                             </MenuItem>
                         </MenuList>
                     </Menu>

@@ -1,6 +1,6 @@
-import axios from "axios"
+import axios from "axios";
+import { User, UserLogin } from "../types/User";
 
-import { User } from "../types/User"
 
 export const CreateNewUser = async(newUserData:User) => {
 	try {
@@ -26,7 +26,6 @@ export const CreateNewUser = async(newUserData:User) => {
 	}
   }
 
-  import { UserLogin } from "../types/User";
 
 
 export const AuthLogin = async(credentials:UserLogin) => {
@@ -38,7 +37,9 @@ export const AuthLogin = async(credentials:UserLogin) => {
 			email:credentialCopy.email,
 			password:credentialCopy.password
 		})
-		console.log(response);
+		const token = response.data.authResponse.token
+		token?sessionStorage.setItem('token',token):sessionStorage.setItem('token','')
+		return token
 	}
 	catch(error){
 		console.log(error)

@@ -23,6 +23,7 @@ const NewWeightModal: FunctionComponent<NewWeightModalProps> = ({
     isOpen,
 }) => {
     const { register, handleSubmit } = useForm()
+    const today = new Date().toISOString().split('T')[0]
 
     const onSubmit = (data: any) => {
         CreateNewweight(data)
@@ -41,8 +42,8 @@ const NewWeightModal: FunctionComponent<NewWeightModalProps> = ({
                                 <Input
                                     isRequired
                                     {...register('date')}
-                                    placeholder="date"
                                     type={'date'}
+                                    defaultValue={today}
                                 />
                             </FormControl>
                             <FormControl mt={4}>

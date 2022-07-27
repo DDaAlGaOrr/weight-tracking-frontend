@@ -7,6 +7,12 @@
     height: 100%;
     transition: all 0.5s ease;
 }
+.sidebar-root {
+    overflow: hidden;
+}
+.sidebar-root:hover {
+    overflow-y: auto;
+}
 .wrapper .sidebar ul li a {
     display: block;
     padding: 13px 30px;
@@ -36,4 +42,7 @@
 .wrapper .sidebar ul li a:hover:before,
 .wrapper .sidebar ul li a.active:before {
     display: block;
+}
+.sidebar {
+    overflow: hidden;
 }

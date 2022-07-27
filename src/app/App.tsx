@@ -1,4 +1,4 @@
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Center } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -8,41 +8,21 @@ import CreateUser from './pages/CreateUser/CreateUser'
 import Graph from './pages/Graph/Graph'
 import LoginPage from './pages/Login/LoginPage'
 import TablePage from './pages/Table/table'
+import '../App.css'
 
 const App: FunctionComponent = () => {
-    console.log(sessionStorage.getItem('authUser'))
     return (
         <div>
-            <Grid
-                templateAreas={`"header header"
-                                "sidebar content"
-                                "sidebar footer"`}
-                gridTemplateRows={'86px 1fr 300px'}
-                gridTemplateColumns={'200px 1fr'}
-                h="200px"
-                gap="1"
-                color="blackAlpha.700"
-            >
-                <BrowserRouter>
-                    <GridItem area={'header'}>
-                        <Header />
-                    </GridItem>
-                    <GridItem area={'sidebar'}>
-                        <Sidebar />
-                    </GridItem>
-                    <GridItem area={'content'}>
-                        <Routes>
-                            <Route path="/Table" element={<TablePage />} />
-                            <Route path="/Graph" element={<Graph />} />
-                            <Route
-                                path="/CreateUser"
-                                element={<CreateUser />}
-                            />
-                            <Route path="/" element={<LoginPage />} />
-                        </Routes>
-                    </GridItem>
-                </BrowserRouter>
-            </Grid>
+            <BrowserRouter>
+                <Header />
+                <Sidebar />
+                <Routes>
+                    <Route path="/Table" element={<TablePage />} />
+                    <Route path="/Graph" element={<Graph />} />
+                    <Route path="/CreateUser" element={<CreateUser />} />
+                    <Route path="/" element={<LoginPage />} />
+                </Routes>
+            </BrowserRouter>
         </div>
     )
 }

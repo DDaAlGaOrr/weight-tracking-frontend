@@ -5,7 +5,6 @@ import { Weight } from '../types/Weight'
 
 export const CreateNewweight = async(newData:Weight) => {
 	try {
-	console.log(newData)
 	const newDataCopy:any = {...newData}
 	newDataCopy.weight = parseInt(newDataCopy.weight)
 	console.log(newDataCopy)

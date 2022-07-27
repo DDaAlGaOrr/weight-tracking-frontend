@@ -1,19 +1,18 @@
 import { Button, Center, Container, Input, VStack } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
-import { FiUserPlus, FiLogIn } from 'react-icons/fi'
+import { FiLogIn, FiUserPlus } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 import { AuthLogin } from '../../../API/User'
 import './LoginPage.css'
 
 const LoginPage: FunctionComponent = () => {
     const { register, handleSubmit } = useForm()
-    const navigate = useNavigate()
 
     const onSubmit = async (data: any) => {
-        AuthLogin(data)
-        navigate('/')
+        const tokenExist = await AuthLogin(data)
+        tokenExist ? (window.location.href = '/table') : ''
     }
 
     return (

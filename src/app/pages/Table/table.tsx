@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
 import NewWeightModal from './Modal/NewWeightModal'
+import './Table.css'
 
 const TablePage: FunctionComponent = () => {
     const { onOpen, onClose, isOpen } = useDisclosure()
@@ -37,7 +38,6 @@ const TablePage: FunctionComponent = () => {
                         </Tbody>
                     </Table>
                 </TableContainer>
-
                 <TableContainer className="app-margin-top">
                     <Button onClick={onOpen} className="app-margin-bottom">
                         Nuevo registro
