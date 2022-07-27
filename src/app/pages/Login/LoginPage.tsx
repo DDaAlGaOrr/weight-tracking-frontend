@@ -4,14 +4,14 @@ import { useForm } from 'react-hook-form'
 import { FiLogIn, FiUserPlus } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
-import { AuthLogin } from '../../../API/User'
+import { authLogin } from '../../../API/User'
 import './LoginPage.css'
 
 const LoginPage: FunctionComponent = () => {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = async (data: any) => {
-        const tokenExist = await AuthLogin(data)
+        const tokenExist = await authLogin(data)
         tokenExist ? (window.location.href = '/table') : ''
     }
 

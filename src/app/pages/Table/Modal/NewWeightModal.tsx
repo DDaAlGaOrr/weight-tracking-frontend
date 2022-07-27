@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 
-import { CreateNewweight } from '../../../../API/weight'
+import { createNewweight } from '../../../../API/weight'
 
 interface NewWeightModalProps {
     onClose: () => void
@@ -26,7 +26,7 @@ const NewWeightModal: FunctionComponent<NewWeightModalProps> = ({
     const today = new Date().toISOString().split('T')[0]
 
     const onSubmit = (data: any) => {
-        CreateNewweight({ ...data, userId: sessionStorage.getItem('userId') })
+        createNewweight({ ...data, userId: sessionStorage.getItem('userId') })
     }
 
     return (
@@ -55,7 +55,9 @@ const NewWeightModal: FunctionComponent<NewWeightModalProps> = ({
                             </FormControl>
                             <Button
                                 type="submit"
-                                onClick={onClose}
+                                onClick={() =>
+                                    (window.location.href = '/table')
+                                }
                                 colorScheme="blue"
                                 mr={3}
                             >

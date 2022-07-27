@@ -13,7 +13,7 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { FiArrowLeft, FiSave } from 'react-icons/fi'
 
-import { CreateNewUser } from '../../../API/User'
+import { createNewUser } from '../../../API/User'
 
 const CreateUser: FunctionComponent = () => {
     const { register, handleSubmit } = useForm()
@@ -21,7 +21,7 @@ const CreateUser: FunctionComponent = () => {
     const handleClick = () => setShow(!show)
 
     const onSubmit = (data: any) => {
-        CreateNewUser(data)
+        createNewUser(data)
     }
 
     return (

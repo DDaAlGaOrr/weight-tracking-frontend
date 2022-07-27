@@ -2,7 +2,7 @@ import axios from "axios";
 import { User, UserLogin } from "../types/User";
 
 
-export const CreateNewUser = async(newUserData:User) => {
+export const createNewUser = async(newUserData:User) => {
 	try {
 	  const newUserDataCopy:any = {...newUserData}
 	  newUserDataCopy.firstWeight = parseInt(newUserDataCopy.firstWeight) 
@@ -28,7 +28,7 @@ export const CreateNewUser = async(newUserData:User) => {
 
 
 
-export const AuthLogin = async(credentials:UserLogin) => {
+export const authLogin = async(credentials:UserLogin) => {
 	try{
 		const credentialCopy = {...credentials}
 		credentialCopy.email = credentialCopy.email.trim()

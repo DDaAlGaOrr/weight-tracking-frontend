@@ -10,13 +10,23 @@ import {
     Tr,
     useDisclosure,
 } from '@chakra-ui/react'
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useEffect, useState } from 'react'
+
 import NewWeightModal from './Modal/NewWeightModal'
 import './Table.css'
+import { GeneralTable } from './../../../types/Weight'
+import { getGeneralTable } from './../../../API/weight'
 
 const TablePage: FunctionComponent = () => {
     const { onOpen, onClose, isOpen } = useDisclosure()
+    const [generalTable, setGeneralTable] = useState<GeneralTable>()
 
+    useEffect(() => {
+        getData()
+    }, [])
+    const getData = async () => {
+        setGeneralTable(await getGeneralTable(sessionStorage.getItem('userId')))
+    }
     return (
         <div>
             <Container maxW="container.sm" className="app-margin-top">
@@ -24,16 +34,18 @@ const TablePage: FunctionComponent = () => {
                     <Table variant="simple" border="1px" borderColor="gray.200">
                         <Thead>
                             <Tr>
-                                <Th>Peso inicial</Th>
+                                <Th>Peso Inicial</Th>
                                 <Th>Peso Actual</Th>
                                 <Th>Peso meta</Th>
+                                <Th>Peso por bajar</Th>
                             </Tr>
                         </Thead>
                         <Tbody>
                             <Tr>
-                                <Td>91</Td>
-                                <Td>90</Td>
-                                <Td>75</Td>
+                                <Td>{generalTable?.initialWeight}</Td>
+                                <Td>{generalTable?.actualWeight}</Td>
+                                <Td>{generalTable?.targetWeight}</Td>
+                                <Td>{generalTable?.remainingWeight}</Td>
                             </Tr>
                         </Tbody>
                     </Table>
