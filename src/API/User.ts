@@ -20,7 +20,8 @@ export const createNewUser = async(newUserData:User) => {
         height:  newUserDataCopy.height,
         targetWeight:  newUserDataCopy.targetWeight,
 	  })
-	  console.log(result);
+	  console.log(result.data.exist)
+	  return result.data.exist
 	} catch (error) {
 	  console.error(error);
 	}

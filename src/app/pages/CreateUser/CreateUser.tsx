@@ -20,8 +20,10 @@ const CreateUser: FunctionComponent = () => {
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
 
-    const onSubmit = (data: any) => {
-        createNewUser(data)
+    const onSubmit = async (data: any) => {
+        const existsUser = await createNewUser(data)
+        console.log(existsUser)
+        !existsUser ? (window.location.href = '/') : ''
     }
 
     return (
