@@ -1,5 +1,6 @@
 import {
     Button,
+    Center,
     FormControl,
     Input,
     Modal,
@@ -25,8 +26,12 @@ const NewWeightModal: FunctionComponent<NewWeightModalProps> = ({
     const { register, handleSubmit } = useForm()
     const today = new Date().toISOString().split('T')[0]
 
-    const onSubmit = (data: any) => {
-        createNewweight({ ...data, userId: sessionStorage.getItem('userId') })
+    const onSubmit = async (data: any) => {
+        const isCreate = await createNewweight({
+            ...data,
+            userId: sessionStorage.getItem('userId'),
+        })
+        isCreate ? (window.location.href = '/table') : ''
     }
 
     return (
@@ -53,17 +58,14 @@ const NewWeightModal: FunctionComponent<NewWeightModalProps> = ({
                                     placeholder="Peso"
                                 />
                             </FormControl>
-                            <Button
-                                type="submit"
-                                onClick={() =>
-                                    (window.location.href = '/table')
-                                }
-                                colorScheme="blue"
-                                mr={3}
-                            >
-                                Guardar
-                            </Button>
-                            <Button onClick={onClose}>Cancel</Button>
+                            <Center mt={15}>
+                                <Button mr={15} onClick={onClose}>
+                                    Cancelar
+                                </Button>
+                                <Button type="submit" colorScheme="blue">
+                                    Guardar
+                                </Button>
+                            </Center>
                         </form>
                     </ModalBody>
                 </ModalContent>

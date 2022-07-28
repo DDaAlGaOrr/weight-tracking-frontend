@@ -12,7 +12,7 @@ export const createNewweight = async(newData:Weight) => {
 		weight: newDataCopy.weight,
 		userId:newDataCopy.userId,
 	 })
-	 return result
+	 return result.data.create
 	} catch (error) {
 	  console.error(error);
 	}

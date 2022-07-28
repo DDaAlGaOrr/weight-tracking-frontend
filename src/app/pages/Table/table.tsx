@@ -26,7 +26,6 @@ const TablePage: FunctionComponent = () => {
         getGeneral()
         getDetailed()
     }, [])
-    console.log(detailedTable)
     const getGeneral = async () => {
         setGeneralTable(await getGeneralTable(sessionStorage.getItem('userId')))
     }
