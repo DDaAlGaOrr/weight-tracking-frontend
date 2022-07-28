@@ -12,10 +12,10 @@ import {
 } from '@chakra-ui/react'
 import { FunctionComponent, useEffect, useState } from 'react'
 
+import { getDetailedTable, getGeneralTable } from './../../../API/weight'
+import { DetailedTable, GeneralTable } from './../../../types/Weight'
 import NewWeightModal from './Modal/NewWeightModal'
 import './Table.css'
-import { GeneralTable, DetailedTable } from './../../../types/Weight'
-import { getGeneralTable, getDetailedTable } from './../../../API/weight'
 
 const TablePage: FunctionComponent = () => {
     const { onOpen, onClose, isOpen } = useDisclosure()
@@ -26,7 +26,6 @@ const TablePage: FunctionComponent = () => {
         getGeneral()
         getDetailed()
     }, [])
-    console.log(detailedTable)
     const getGeneral = async () => {
         setGeneralTable(await getGeneralTable(sessionStorage.getItem('userId')))
     }

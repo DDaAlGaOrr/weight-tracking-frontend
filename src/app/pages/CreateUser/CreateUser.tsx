@@ -1,17 +1,17 @@
 import {
     Button,
+    Center,
     Container,
     FormControl,
     Input,
-    VStack,
-    Center,
     InputGroup,
     InputRightElement,
+    VStack,
 } from '@chakra-ui/react'
 import { FunctionComponent, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
 import { FiArrowLeft, FiSave } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 import { createNewUser } from '../../../API/User'
 
@@ -22,7 +22,6 @@ const CreateUser: FunctionComponent = () => {
 
     const onSubmit = async (data: any) => {
         const existsUser = await createNewUser(data)
-        console.log(existsUser)
         !existsUser ? (window.location.href = '/') : ''
     }
 

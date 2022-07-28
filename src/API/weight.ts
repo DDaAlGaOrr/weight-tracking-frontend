@@ -1,6 +1,6 @@
 import axios from "axios"
+import { DetailedTable, Weight } from '../types/Weight'
 
-import { Weight,GeneralTable,DetailedTable } from '../types/Weight'
 
 
 export const createNewweight = async(newData:Weight) => {

@@ -1,15 +1,15 @@
-import { FunctionComponent } from 'react'
 import {
+    Button,
+    FormControl,
+    Input,
     Modal,
     ModalBody,
     ModalCloseButton,
     ModalContent,
     ModalHeader,
     ModalOverlay,
-    FormControl,
-    Input,
-    Button,
 } from '@chakra-ui/react'
+import { FunctionComponent } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { createNewweight } from '../../../../API/weight'

@@ -1,5 +1,6 @@
 import { Container, Text } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
+
 import './Graph.css'
 
 const Graph: FunctionComponent = () => {

@@ -1,14 +1,13 @@
-import { Center } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import '../App.css'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import CreateUser from './pages/CreateUser/CreateUser'
 import Graph from './pages/Graph/Graph'
 import LoginPage from './pages/Login/LoginPage'
 import TablePage from './pages/Table/table'
-import '../App.css'
 
 const App: FunctionComponent = () => {
     return (

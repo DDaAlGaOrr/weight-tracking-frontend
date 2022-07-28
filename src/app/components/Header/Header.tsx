@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
 import { FiLogOut, FiSettings, FiUser } from 'react-icons/fi'
+
 import './Header.css'
 
 const Header: FunctionComponent = () => {
