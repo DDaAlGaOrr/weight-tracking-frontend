@@ -26,6 +26,10 @@ const TablePage: FunctionComponent = () => {
         getGeneral()
         getDetailed()
     }, [])
+    console.log(detailedTable)
+    // Object.values(detailedTable).map((data, index) => {
+    //     console.log(data, index)
+    // })
     const getGeneral = async () => {
         setGeneralTable(await getGeneralTable(sessionStorage.getItem('userId')))
     }
@@ -72,12 +76,16 @@ const TablePage: FunctionComponent = () => {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            <Tr>
-                                <Td>07/11/2022</Td>
-                                <Td>90</Td>
-                                <Td>1</Td>
-                                <Td>36</Td>
-                            </Tr>
+                            {Object.values(detailedTable).map(
+                                (itemTable: any) => (
+                                    <Tr key={itemTable}>
+                                        <Td>{itemTable.date}</Td>
+                                        <Td>{itemTable.weight}</Td>
+                                        <Td>1</Td>
+                                        <Td>36</Td>
+                                    </Tr>
+                                ),
+                            )}
                         </Tbody>
                     </Table>
                 </TableContainer>
