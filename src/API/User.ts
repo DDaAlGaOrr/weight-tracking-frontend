@@ -7,7 +7,7 @@ export const createNewUser = async(newUserData:User) => {
 	  const newUserDataCopy:any = {...newUserData}
 	  newUserDataCopy.firstWeight = parseInt(newUserDataCopy.firstWeight) 
 	  newUserDataCopy.age =  parseInt(newUserDataCopy.age) 
-	  newUserDataCopy.height = parseInt(newUserDataCopy.height) 
+	  newUserDataCopy.height = parseFloat(newUserDataCopy.height) 
 	  newUserDataCopy.targetWeight = parseInt(newUserDataCopy.targetWeight)
 
 	  const result = await axios.post('http://localhost:3001/users',{

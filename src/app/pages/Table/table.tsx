@@ -14,18 +14,26 @@ import { FunctionComponent, useEffect, useState } from 'react'
 
 import NewWeightModal from './Modal/NewWeightModal'
 import './Table.css'
-import { GeneralTable } from './../../../types/Weight'
-import { getGeneralTable } from './../../../API/weight'
+import { GeneralTable, DetailedTable } from './../../../types/Weight'
+import { getGeneralTable, getDetailedTable } from './../../../API/weight'
 
 const TablePage: FunctionComponent = () => {
     const { onOpen, onClose, isOpen } = useDisclosure()
     const [generalTable, setGeneralTable] = useState<GeneralTable>()
+    const [detailedTable, setDetailedTable] = useState<DetailedTable[]>([])
 
     useEffect(() => {
-        getData()
+        getGeneral()
+        getDetailed()
     }, [])
-    const getData = async () => {
+    console.log(detailedTable)
+    const getGeneral = async () => {
         setGeneralTable(await getGeneralTable(sessionStorage.getItem('userId')))
+    }
+    const getDetailed = async () => {
+        setDetailedTable(
+            await getDetailedTable(sessionStorage.getItem('userId')),
+        )
     }
     return (
         <div>
@@ -60,36 +68,13 @@ const TablePage: FunctionComponent = () => {
                                 <Th>Fecha</Th>
                                 <Th>Peso actual</Th>
                                 <Th>Peso Perdido</Th>
-                                <Th>IMC</Th>
+                                <Th>Peso meta</Th>
+                                <Th>Peso por perder</Th>
                             </Tr>
                         </Thead>
                         <Tbody>
                             <Tr>
                                 <Td>07/11/2022</Td>
-                                <Td>90</Td>
-                                <Td>1</Td>
-                                <Td>36</Td>
-                            </Tr>
-                            <Tr>
-                                <Td>07/12/2022</Td>
-                                <Td>90</Td>
-                                <Td>1</Td>
-                                <Td>36</Td>
-                            </Tr>
-                            <Tr>
-                                <Td>07/13/2022</Td>
-                                <Td>90</Td>
-                                <Td>1</Td>
-                                <Td>36</Td>
-                            </Tr>
-                            <Tr>
-                                <Td>07/14/2022</Td>
-                                <Td>90</Td>
-                                <Td>1</Td>
-                                <Td>36</Td>
-                            </Tr>
-                            <Tr>
-                                <Td>07/15/2022</Td>
                                 <Td>90</Td>
                                 <Td>1</Td>
                                 <Td>36</Td>

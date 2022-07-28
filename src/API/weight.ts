@@ -1,6 +1,6 @@
 import axios from "axios"
 
-import { Weight,GeneralTable } from '../types/Weight'
+import { Weight,GeneralTable,DetailedTable } from '../types/Weight'
 
 
 export const createNewweight = async(newData:Weight) => {
@@ -18,13 +18,21 @@ export const createNewweight = async(newData:Weight) => {
 	}
   }
 export const getGeneralTable = async(userId:any):Promise<any> => {
-		const getGeneralTable = await axios.get('http://localhost:3001/weight/generalTable',{
+		const getGeneralDataTable = await axios.get('http://localhost:3001/weight/generalTable',{
 			params:{
 				userId
 			}
 		})
-		const actualWeight = getGeneralTable.data.actualWeight
-		const targetWeight = getGeneralTable.data.targetWeight
+		const actualWeight = getGeneralDataTable.data.actualWeight
+		const targetWeight = getGeneralDataTable.data.targetWeight
 		const remainingWeight = actualWeight - targetWeight
-		return {...getGeneralTable.data, remainingWeight}
+		return {...getGeneralDataTable.data, remainingWeight}
+}
+export const getDetailedTable = async(userId:any):Promise<DetailedTable[]> => {
+		const getDetailedDataTable = await axios.get('http://localhost:3001/weight/detaliedTable',{
+			params:{
+				userId
+			}
+		})as DetailedTable[]
+		return getDetailedDataTable
 }

@@ -10,6 +10,12 @@ export interface GeneralTable{
 	targetWeight:number
 	remainingWeight: number
 }
+export interface DetailedTable{
+	date: string
+    actualWeight: number
+    loseWeight: number
+    IMC: number
+}
 
 export const DEFAULT_WEIGHT:Weight={
 	date: new Date(Date.now()),
