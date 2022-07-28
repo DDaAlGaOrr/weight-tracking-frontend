@@ -15,6 +15,10 @@ export interface DetailedTable{
     weight: number
     loseWeight: number
 }
+export interface ChartData{
+	date: string
+    weight: number
+}
 
 export const DEFAULT_WEIGHT:Weight={
 	date: new Date(Date.now()),

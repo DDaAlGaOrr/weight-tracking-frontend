@@ -1,5 +1,5 @@
 import axios from "axios"
-import { DetailedTable, Weight } from '../types/Weight'
+import { DetailedTable, Weight,ChartData } from '../types/Weight'
 
 
 
@@ -35,4 +35,12 @@ export const getDetailedTable = async(userId:any):Promise<DetailedTable[]> => {
 			}
 		}) 
 		return getDetailedDataTable.data
+}
+export const getChart = async(userId:any):Promise<ChartData[]> => {
+		const getChartData = await axios.get('http://localhost:3001/weight/graph',{
+			params:{
+				userId
+			}
+		}) 
+		return getChartData.data
 }
