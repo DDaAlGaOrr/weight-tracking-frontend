@@ -12,9 +12,8 @@ export interface GeneralTable{
 }
 export interface DetailedTable{
 	date: string
-    actualWeight: number
+    weight: number
     loseWeight: number
-    IMC: number
 }
 
 export const DEFAULT_WEIGHT:Weight={

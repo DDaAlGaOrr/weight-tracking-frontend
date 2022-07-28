@@ -27,9 +27,6 @@ const TablePage: FunctionComponent = () => {
         getDetailed()
     }, [])
     console.log(detailedTable)
-    // Object.values(detailedTable).map((data, index) => {
-    //     console.log(data, index)
-    // })
     const getGeneral = async () => {
         setGeneralTable(await getGeneralTable(sessionStorage.getItem('userId')))
     }
@@ -53,10 +50,10 @@ const TablePage: FunctionComponent = () => {
                         </Thead>
                         <Tbody>
                             <Tr>
-                                <Td>{generalTable?.initialWeight}</Td>
-                                <Td>{generalTable?.actualWeight}</Td>
-                                <Td>{generalTable?.targetWeight}</Td>
-                                <Td>{generalTable?.remainingWeight}</Td>
+                                <Td>{generalTable?.initialWeight} Kg</Td>
+                                <Td>{generalTable?.actualWeight} Kg</Td>
+                                <Td>{generalTable?.targetWeight} Kg</Td>
+                                <Td>{generalTable?.remainingWeight} Kg</Td>
                             </Tr>
                         </Tbody>
                     </Table>
@@ -69,20 +66,17 @@ const TablePage: FunctionComponent = () => {
                         <Thead>
                             <Tr>
                                 <Th>Fecha</Th>
-                                <Th>Peso actual</Th>
+                                <Th>Peso </Th>
                                 <Th>Peso Perdido</Th>
-                                <Th>Peso meta</Th>
-                                <Th>Peso por perder</Th>
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {Object.values(detailedTable).map(
-                                (itemTable: any) => (
-                                    <Tr key={itemTable}>
+                            {detailedTable.map(
+                                (itemTable: DetailedTable, index) => (
+                                    <Tr key={index}>
                                         <Td>{itemTable.date}</Td>
-                                        <Td>{itemTable.weight}</Td>
-                                        <Td>1</Td>
-                                        <Td>36</Td>
+                                        <Td>{itemTable.weight} Kg</Td>
+                                        <Td>{itemTable.loseWeight} Kg</Td>
                                     </Tr>
                                 ),
                             )}

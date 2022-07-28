@@ -33,6 +33,6 @@ export const getDetailedTable = async(userId:any):Promise<DetailedTable[]> => {
 			params:{
 				userId
 			}
-		}) as DetailedTable[]
-		return getDetailedDataTable
+		}) 
+		return getDetailedDataTable.data
 }
