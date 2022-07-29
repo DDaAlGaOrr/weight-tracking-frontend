@@ -67,7 +67,7 @@ const Graph: FunctionComponent = () => {
 
     return (
         <div>
-            <Container>
+            <Container maxW="4xl">
                 <Line options={options} data={data} />
             </Container>
         </div>

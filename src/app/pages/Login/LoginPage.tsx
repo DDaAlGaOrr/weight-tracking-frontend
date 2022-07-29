@@ -17,7 +17,7 @@ const LoginPage: FunctionComponent = () => {
 
     return (
         <div>
-            <Container maxW="550px">
+            <Container maxW="550px" className="app-margin-top">
                 <Center>
                     <img
                         className="user-icon"

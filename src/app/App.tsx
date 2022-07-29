@@ -13,8 +13,12 @@ const App: FunctionComponent = () => {
     return (
         <div>
             <BrowserRouter>
-                <Header />
-                <Sidebar />
+                {sessionStorage.getItem('token') && (
+                    <>
+                        <Header />
+                        <Sidebar />)
+                    </>
+                )}
                 <Routes>
                     <Route path="/Table" element={<TablePage />} />
                     <Route path="/Graph" element={<Graph />} />
